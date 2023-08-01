@@ -6,8 +6,11 @@ class User < ApplicationRecord
 
   has_many :foods
   has_many :recipes
-  has_many :through_recipes, through: :recipes, source: :recipe_foods
-  has_many :through_food, through: :foods, source: :recipe_foods
+  has_many :recipe_foods
 
   validates :name, presence: true
+
+  def set_default
+    self.name = email.split('@')[0]
+  end
 end

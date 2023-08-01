@@ -1,5 +1,8 @@
 class RecipeFood < ApplicationRecord
   belongs_to :recipe
   belongs_to :food
-  belongs_to :user, through: :recipes
+
+  validates :quantity, presence: true, numericality: {only_integer: true}
+  validates :recipe, presence: true
+  validates :food, presence: true
 end
