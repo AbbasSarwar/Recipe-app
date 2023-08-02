@@ -1,0 +1,12 @@
+<header>
+<nav>menu here</nav>
+</header>
+<section class="container">
+<h1>Registered Users</h1>
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>* <b><%= user.name %></b> Role: <p><%= user.role? ? user.role : "user" %></p></li>
+  <% end %>
+</ul>
+</section>
+<footer>Project @</footer>
