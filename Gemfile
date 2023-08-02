@@ -5,9 +5,9 @@ ruby '3.1.3'
 gem 'cancancan'
 gem 'devise'
 
-gem 'pg'
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.2'
+gem 'pg'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.6'
