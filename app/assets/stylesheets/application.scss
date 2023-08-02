@@ -1,0 +1,65 @@
+@import 'bootstrap';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.forms {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  list-style: circle;
+}
+
+.users li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+footer {
+  display: flex;
+  height: 10%;
+}
+
+.splash-bottom {
+  margin-bottom: 3rem;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+}
