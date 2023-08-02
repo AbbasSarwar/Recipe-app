@@ -8,7 +8,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.create(food_params.merge(user_id: current_user.id))
+    @food = current_user.foods.build(food_params)
 
     respond_to do |format|
       format.html do
