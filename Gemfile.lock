@@ -292,11 +292,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-<<<<<<< HEAD
-  bootstrap
-=======
+
   bootstrap (~> 5.0)
->>>>>>> 374414cdad9f92d3639083915429e0e89f50cde0
   bootstrap_form (~> 5.2)
   cancancan
   capybara
