@@ -7,7 +7,8 @@ class User < ApplicationRecord
 
   has_many :foods
   has_many :recipes
-  has_many :recipe_foods
+  has_many :ingredients, through: :recipes
+
 
   def set_default
     self.name = email.split('@')[0]
