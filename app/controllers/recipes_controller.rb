@@ -6,10 +6,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    #@recipe = current_user.recipes.find(params[:id])
+    # @recipe = current_user.recipes.find(params[:id])
     set_recipe
     @ingredient = Ingredient.where(recipe_id: @recipe.id).includes([:food])
-    end
+  end
 
   def new
     @recipe = current_user.recipes.build
