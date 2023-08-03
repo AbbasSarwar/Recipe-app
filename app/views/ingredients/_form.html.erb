@@ -1,0 +1,35 @@
+
+<%= form_with(model: @ingredient, url: recipe_ingredients_path(@recipe)) do |form| %>
+  <% if @ingredient.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
+
+      <ul>
+        <% @ingredient.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :quantity, style: "display: block; my-1;" %>
+    <%= form.number_field :quantity, class: 'form-control' %>
+  </div>
+
+  <div class="field my-3">
+    <%= form.label :food_id, class: 'my-1' %>
+    <%= form.collection_select :food_id, current_user.foods, :id, :name, { prompt: 'Select Food' }, class: 'form-select form-select-lg border-color-primary' %>
+  </div> 
+     <%= form.hidden_field :recipe_id, value: @recipe.id %>
+
+
+  <div>
+    <%= form.submit 'Add Ingredient', class: 'button-signup border-0 my-2' %>
+  </div>
+<% end %>
+
+
+
+
+

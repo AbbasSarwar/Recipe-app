@@ -21,15 +21,25 @@
   box-sizing: border-box;
 }
 
-body {
-  height: 100vh;
+.box {
+  box-shadow: 0px 2px 2px 2px #ccc;
+  width: 100%;
+  height: 90vh;
+}
+
+.add_recipe_btn {
+  display: inline-block;
+  padding: .5rem 1rem;
+  background-color: #FFCA4B;
+  border-radius: .5rem;
+  text-decoration: none;
+  color: #1c1c1c;
 }
 
 .forms {
   display: flex;
   width: 100%;
   flex-direction: column;
-  border: 1px solid black;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -48,20 +58,8 @@ body {
   gap: 10px;
 }
 
-header {
-  display: flex;
-  flex-direction: row;
-  height: 10%;
-}
 
-.container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 80%;
-  width: 100%;
-  border: 1px solid black;
-}
+
 
 footer {
   display: flex;
@@ -81,4 +79,60 @@ footer {
 
 .title-text {
   text-decoration: none;
+}
+
+nav {
+  height: auto;
+  
+  background-color: #FFCA4B;
+  opacity: 1;
+  width: 100%;
+
+  a{
+      text-transform:capitalize;
+      text-decoration: none;
+      color: #1c1c1c;
+  }
+}
+
+.menu {
+  width: 40%;
+  list-style: none;
+  li {
+     margin-right: 1rem;
+     font-weight: 700;
+
+  }
+  li:hover {
+    color: #6482FF;
+    box-shadow: 0px 2px 4px 2px #ccc;
+    border-radius: 2px;
+  }
+}
+
+.button-login {
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  border: none;
+  border-radius: .5rem;
+  color: #fff;
+  padding: .2rem 3rem;
+  text-decoration: none;
+  background-color: #6482FF;
+  margin-bottom: 2rem;
+}
+
+.button-signup {
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  border-radius: .5rem;
+  color: #fff;
+  padding: .2rem 2.5rem;
+  text-decoration: none;
+  background-color: #FFCA4B;
+  box-shadow: 2px 2px 4px 4px #fff;
 }

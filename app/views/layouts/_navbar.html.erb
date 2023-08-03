@@ -1,34 +1,19 @@
- <nav class="navbar navbar-expand-lg bg-warning d-flex navbar-custom" >
-                  <% if user_signed_in? %>
-
-          <div class="container-fluid">
-
-            <%= link_to 'Recipe App', '/', class: 'display-1 text-white navbar-logo title-text' %>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <% if user_signed_in? %>
-                        <li class="nav-item ">
-                            <%= link_to current_user.email, edit_user_registration_path, class:'nav-link text-white mx-3 my-auto' %>
-                        </li>  
-                        <li class="nav-item active">
-                            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class:'nav-link text-white mx-3 my-auto' %>
-                        </li>  
-                      <% else %> 
-                        <li class="nav-item">
-                            <%= link_to 'Sign Up', new_user_registration_path, class:'nav-link text-white mx-3 my-auto' %>
-                        </li>  
-                     
-                     <li class="nav-item">
-                        <%= link_to 'Sign In', new_user_session_path, class:'nav-link text-white mx-3 my-auto' %>
-                    </li>   
-                  <% end %>   
-                  </ul>
-                                    
-                  </ul>
-               </div>
-          </div>
-    <% end %>
+ <nav class="navbar navbar-brand w-100" >
+                 
+       <% if user_signed_in? %>
+           <ul class="menu d-flex justify-content-between align-items-center">
+              <li><%= image_tag 'logo-bg.png'%></li>
+              <li><%= link_to "Food List", foods_path, class: "nav-link" %></li>
+              <li><%= link_to "Recipe List", recipes_path, class: "nav-link" %></li>
+            </ul>
+            <div class="user-info d-flex justify-content-around">
+              <h5><%=  current_user.name %></h5>
+              <%= link_to  destroy_user_session_path, method: :delete, type: 'button' do %>
+                <i class="fa-solid fa-user fa-xl align-self-end"></i>
+              <% end %>
+            </div>
+     
+       <% else %>
+          <h1>Recipe</h1>
+       <% end %>
 </nav>

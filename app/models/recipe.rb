@@ -5,11 +5,11 @@ class Recipe < ApplicationRecord
   has_many :foods, through: :recipe_foods
 
 
-  validates :name, presence: true, , uniqueness: {scope: :user_id}
-  validates :preparation_time, presence: true, numericality: { only_integer: true }
-  validates :cooking_time, presence: true, numericality: { only_integer: true }
+  validates :name, presence: true, uniqueness: {scope: :user_id}
+  validates :preparation_time, presence: true
+  validates :cooking_time, presence: true
   validates :description, presence: true
-  validates :public, presence: true
+  attribute :public, :boolean, default: false
   validates :user, presence: true
 end
 
