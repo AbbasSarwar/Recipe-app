@@ -21,6 +21,14 @@ class FoodsController < ApplicationController
     end
   end
 
+  aur ye paste kar do   "  def destroy
+    @food = current_user.foods.find(params[:id])
+    if @food.destroy
+      flash[:notice] = "Deleted succesfully #{@food.name}"
+      redirect_to foods_path
+    end
+  end"
+
   private
 
   def food_params
