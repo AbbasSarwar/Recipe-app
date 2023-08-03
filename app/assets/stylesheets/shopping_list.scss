@@ -1,0 +1,49 @@
+.shopping-list {
+  padding: 2rem 10rem 2rem 10rem;
+  text-align: center;
+  height: auto;
+}
+
+
+
+caption {
+  display: table-caption;
+  color: #6482FF;
+  font-size: 2rem;
+  position: relative;
+  color: #fff;
+  z-index: 1;
+}
+
+caption:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  background: #6482FF;
+  z-index: -1;
+}
+
+.table-container {
+  position: relative;
+}
+
+.shopping-list-summary {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  z-index: 1;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .shopping-list-summary {
+    position: unset;
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+    font-size: 1.2rem;
+  }
+}

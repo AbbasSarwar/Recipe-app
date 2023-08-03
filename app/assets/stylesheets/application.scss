@@ -138,3 +138,45 @@ nav {
   background-color: #FFCA4B;
   box-shadow: 2px 2px 4px 4px #fff;
 }
+
+.details-page {
+  width: 100%;
+  height: auto;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.public_recipe {
+  display: flex;
+  justify-content: start;
+}
+
+.toggle {
+  display: flex;
+}
+
+.btn {
+  border: none;
+}
+
+.btn-on {
+  color: #008000;
+}
+
+.btn-off {
+  color: red;
+}
+
+.btn-on,
+.btn-off {
+  font-size: 30px;
+}
+
+.table-style {
+  opacity: 0.8;
+  width: 40%;
+}
+
+.recipe_detail_name {
+  position: relative;
+}
