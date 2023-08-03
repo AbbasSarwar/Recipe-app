@@ -108,7 +108,7 @@ GEM
     diff-lcs (1.5.0)
     erubi (1.12.0)
     execjs (2.8.1)
-    ffi (1.15.5-x64-mingw-ucrt)
+    ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -155,7 +155,6 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
-
     pg (1.5.3-x64-mingw-ucrt)
     popper_js (2.11.7)
     public_suffix (5.0.3)
@@ -292,7 +291,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-
   bootstrap (~> 5.0)
   bootstrap_form (~> 5.2)
   cancancan
@@ -316,7 +314,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.3p185
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.4.10

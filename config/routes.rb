@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 end
   resources :foods 
   resources :recipes do
-    resources :recipe_foods 
+    resources :ingredients
 end
  
 end

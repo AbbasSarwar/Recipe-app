@@ -11,12 +11,16 @@
   </head>
 
   <body>
-      <div>
+  <div class="container box">
         <%= render 'layouts/navbar' %>
-    
+
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
+      <main class="main-content">
         <%= yield %>
-      </div>
+      </main>
+    </div>
+    <script src="https://kit.fontawesome.com/b89d57aeef.js" crossorigin="anonymous"></script>
+
   </body>
 </html>

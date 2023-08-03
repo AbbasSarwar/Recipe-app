@@ -1,0 +1,26 @@
+
+<%= form_with model: @recipe do |f| %>
+    <h2>New Recipe</h2>
+    
+      <div class="form-group my-2">
+        <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
+      </div>
+
+       <div class="form-group my-2">
+        <%= f.text_field :preparation_time, placeholder: 'Preparation Time', class: 'form-control' %>
+      </div>
+
+       <div class="form-group my-2">
+        <%= f.text_field :cooking_time, placeholder: 'Cooking Time', class: 'form-control' %>
+      </div>
+          
+      <div class="form-group my-2">
+        <%= f.text_area :description, placeholder: 'Description', class: 'form-control' %>
+      </div>
+    
+      <div class="form-group my-2">
+        <%= f.submit :submit, class: 'button-login' %>
+      </div>
+<%= link_to 'Back To Recipe', recipes_path %>
+
+<% end %>
