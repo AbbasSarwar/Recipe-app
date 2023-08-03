@@ -8,7 +8,7 @@
       <th scope="col">Measurement Unit</th>
       <th scope="col">Price</th>
       <th scope="col">Quantity</th>
-
+      <th scope="col">Action</th>
     </tr>
   </thead>
       <tbody>
@@ -18,7 +18,10 @@
                 <td><%= food.measurement_unit %></td>
                 <td><%= food.price %></td>
                 <td><%= food.quantity %></td>
-                
+                <td>
+                 <%= button_to "Delete", food_path(food), 
+                 method: :delete, class: 'button-signup' %>
+                </td>
             </tr>
         <% end %>
      </tbody>
