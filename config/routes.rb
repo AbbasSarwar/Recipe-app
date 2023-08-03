@@ -16,5 +16,6 @@ end
   resources :recipes do
     resources :ingredients
 end
- 
+resources :public_recipes, only: [:index]
+resources :shopping_lists, only: [:index]
 end
