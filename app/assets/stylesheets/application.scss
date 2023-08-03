@@ -134,3 +134,65 @@ nav {
   background-color: #ffca4b;
   box-shadow: 2px 2px 4px 4px #fff;
 }
+
+.details-page {
+  width: 100%;
+  height: auto;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.public_recipe {
+  display: flex;
+  justify-content: start;
+}
+
+.toggle {
+  display: flex;
+}
+
+.btn {
+  border: none;
+}
+
+.btn-on {
+  color: #008000;
+}
+
+.btn-off {
+  color: red;
+}
+
+.btn-on,
+.btn-off {
+  font-size: 30px;
+}
+
+.table-style {
+  opacity: 0.8;
+  width: 40%;
+}
+
+.recipe_detail_name {
+  position: relative;
+}
+
+.recipe_detail_name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 10%;
+  margin-top: 0.5rem;
+  transform: skew(8deg, -5deg);
+  background-color: #ffa27f;
+}
+
+@media (max-width: 500px) {
+  .button-login,
+  .button-signup {
+    width: 100%;
+    font-size: 65%;
+  }
+}
