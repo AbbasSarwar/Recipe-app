@@ -12,9 +12,9 @@
           <% end %>
         <% end %>
         </div>
-          
-        <% end %>
        <p>Public</p>
+
+        <% end %>
 
         </div>
   <section class='public_recipe d-flex flex-column'>
@@ -58,7 +58,7 @@
   <% if current_user.id == @recipe.user_id %>
       <div class="container d-flex justify-content-between align-items-center flex-wrap">
          <%= link_to 'Add Ingredient', new_recipe_ingredient_path(@recipe), class: 'button-signup mb-4 flex-shrink-1' %>
-         <%= link_to 'Shopping List', shopping_lists_path,  class: 'button-login mt-2 flex-shrink-1' %>
+         <%= link_to 'Shopping List', shopping_lists_path(recipe_id: @recipe.id),  class: 'button-login mt-2 flex-shrink-1' %>
 
       </div>
   <% end %>
