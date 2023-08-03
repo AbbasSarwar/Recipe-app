@@ -4,25 +4,22 @@
   height: auto;
 }
 
-
-
 caption {
   display: table-caption;
-  color: #6482FF;
   font-size: 2rem;
   position: relative;
   color: #fff;
   z-index: 1;
 }
 
-caption:after {
+caption::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 70%;
-  background: #6482FF;
+  background: #6482ff;
   z-index: -1;
 }
 
