@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'rubocop', '>= 1.0', '< 2.0'
-ruby '3.2.2'
+ruby '3.1.3'
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.2'
 gem 'cancancan'

@@ -35,6 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_004157) do
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> shopping-list
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.integer "preparation_time"
@@ -69,5 +73,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_004157) do
   add_foreign_key "foods", "users"
   add_foreign_key "ingredients", "foods"
   add_foreign_key "ingredients", "recipes"
+<<<<<<< HEAD
   add_foreign_key "recipes", "users"
+=======
+   add_foreign_key "recipes", "users"
+>>>>>>> shopping-list
 end
