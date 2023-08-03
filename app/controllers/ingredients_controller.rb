@@ -27,7 +27,6 @@ class IngredientsController < ApplicationController
       end
     end
   end
-  
 
   def edit
     @ingredient = current_user.ingredients.find(params[:id])
@@ -69,5 +68,4 @@ class IngredientsController < ApplicationController
   def ingredient_params
     params.require(:ingredient).permit(:quantity, :food_id, :recipe_id)
   end
-      
 end
