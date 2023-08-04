@@ -1,11 +1,13 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_recipe, only: [:show]
   def index
     @recipes = current_user.recipes.order(id: :desc)
   end
 
   def show
-    @recipe = current_user.recipes.find(params[:id])
+    # @recipe = current_user.recipes.find(params[:id])
+    set_recipe
     @ingredient = Ingredient.where(recipe_id: @recipe.id).includes([:food])
   end
 
@@ -50,6 +52,10 @@ class RecipesController < ApplicationController
   end
 
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def input_verify
     @recipe = params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description,

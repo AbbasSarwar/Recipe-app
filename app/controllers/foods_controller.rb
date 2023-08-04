@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @foods = current_user.foods.all
   end
@@ -9,7 +11,6 @@ class FoodsController < ApplicationController
 
   def create
     @food = current_user.foods.build(food_params)
-
     respond_to do |format|
       format.html do
         if @food.save
@@ -25,7 +26,7 @@ class FoodsController < ApplicationController
     @food = current_user.foods.find(params[:id])
     return unless @food.destroy
 
-    flash[:notice] = "Deleted succesfully #{@food.name}"
+    flash[:notice] = "Deleted successfully #{@food.name}"
     redirect_to foods_path
   end
 
