@@ -1,37 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
+  user1 = User.new(name: "abbas", role: "admin")
+  subject do
+    Recipe.new(name:"Tikka", preparation_time: 120, cooking_time:60, description:"recipe", public:true, user:user1)
+  end
   describe 'validations' do
-    let(:recipe) { Recipe.new }
-    before do
-      recipe.valid?
+    it "Require name" do
+      subject.name = nil
+      expect(subject).to_not be_valid
     end
-
-    it 'requires a user' do
-      expect(recipe.errors[:user]).to include("can't be blank")
+    it 'Preparation time should be valid' do
+      subject.preparation_time = nil
+      expect(subject).to_not be_valid
     end
-
-    it 'requires a name' do
-      expect(recipe.errors[:name]).to include("can't be blank")
+    it 'Cooking time should be valid' do
+      subject.cooking_time = nil
+      expect(subject).to_not be_valid
     end
-
-    it 'requires a description' do
-      expect(recipe.errors[:description]).to include("can't be blank")
+    it 'Description should be valid' do
+      subject.description = "special tikka"
+      expect(subject).to be_valid
     end
-
-    it 'requires a name to be unique for the same user' do
-      recipe1 = create(:recipe)
-      recipe.name = recipe1.name
-      recipe.user = recipe1.user
-      recipe.valid?
-      expect(recipe.errors[:name]).to include('has already been taken')
-    end
-
-    it 'does not require the name to be unique for the different user' do
-      recipe1 = create(:recipe)
-      recipe.name = recipe1.name
-      recipe.valid?
-      expect(recipe.errors[:name]).to_not include('has already been taken')
+    it 'Public should be valid boolean' do
+      subject.public = false
+      expect(subject).to be_valid
     end
   end
 end

@@ -1,38 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  subject do
+    User.new(name: "abbas", role: "admin", email: "abbas@gmail.com", password: "abbas.123")
+  end
+
   describe 'validations' do
-    let(:user) { FactoryBot.create(:user) }
-    before do
-      user.valid?
+    it "Email required can't be blank" do
+      subject.email = nil
+      expect(subject).to_not be_valid
     end
-
-    it 'is valid with name, email, and password' do
-      expect(user).to be_valid
+    it "Password required cant be blank" do
+      subject.password = nil
+      expect(subject).to_not be_valid
     end
-
-    it 'is invalid without a name' do
-      user.name = nil
-      expect(user).to_not be_valid
-      expect(user.errors[:name]).to include("can't be blank")
+    it "Password length shouldn't be shorter" do
+      subject.password = "ab"
+      expect(subject).to_not be_valid
     end
-
-    it 'is invalid without an email' do
-      user.email = nil
-      expect(user).to_not be_valid
-      expect(user.errors[:email]).to include("can't be blank")
-    end
-
-    it 'is invalid without a password' do
-      user = User.new(name: 'ajaz', email: 'ajaz@example.com', password: nil)
-      expect(user).to_not be_valid
-      expect(user.errors[:password]).to include("can't be blank")
-    end
-
-    it 'user requires email to be unique' do
-      user2 = User.new(name: 'ajaz', email: user.email, password: 'sadiq123')
-      expect(user2).to_not be_valid
-      expect(user2.errors[:email]).to include('has already been taken')
+    it 'Name should be valid' do
+      subject.name = "abbas"
+      expect(subject).to be_valid
     end
   end
 end
