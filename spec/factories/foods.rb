@@ -4,7 +4,6 @@ FactoryBot.define do
     measurement_unit { 'grams' }
     price { 5 }
     quantity { 2 }
-    user { nil }
     association(:user)
   end
 end
