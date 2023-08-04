@@ -1,7 +1,10 @@
 FactoryBot.define do
   factory :recipe do
-    name { Faker::Hipster.sentence }
-    description { Faker::Hipster.paragraph }
-    association(:user)
+    name { 'Delicious Recipe' }
+    preparation_time { 30 }
+    cooking_time { 45 }
+    description { 'A mouth-watering recipe' }
+    public { false }
+    association :user
   end
 end
