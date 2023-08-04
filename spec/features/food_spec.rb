@@ -13,6 +13,27 @@ RSpec.feature 'Foods', type: :feature do
       expect(page).to have_content(food.price)
       expect(page).to have_content(food.quantity)
     end
+
+    scenario 'Adding a new food item' do
+        user = FactoryBot.create(:user)
+        food = FactoryBot.create(:food, user: user)
+
+        sign_in user # Sign in the user using Devise test helper
+    
+        visit new_food_path
+    
+        fill_in 'Name', with: 'New Food'
+        fill_in 'Measurement Unit', with: 'grams'
+        fill_in 'Price', with: 10
+        fill_in 'Quantity', with: 3
+        click_button 'submit'
+    
+        expect(page).to have_content("Food was added successfully")
+        expect(page).to have_content('New Food')
+        expect(page).to have_content('grams')
+        expect(page).to have_content('10')
+        expect(page).to have_content('3')
+      end
   
     scenario 'Deleting a food item' do
       user = FactoryBot.create(:user)
