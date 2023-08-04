@@ -17,7 +17,6 @@ RSpec.describe User, type: :model do
       expect(user.errors[:name]).to include("can't be blank")
     end
 
-
     it 'is invalid without an email' do
       user.email = nil
       expect(user).to_not be_valid
