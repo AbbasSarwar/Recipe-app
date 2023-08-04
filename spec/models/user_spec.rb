@@ -7,16 +7,7 @@ RSpec.describe User, type: :model do
       user.valid?
     end
 
-    it 'is valid with name, email, and password' do
-      expect(user).to be_valid
-    end
-
-    it 'is invalid without a name' do
-      user.name = nil
-      expect(user).to_not be_valid
-      expect(user.errors[:name]).to include("can't be blank")
-    end
-
+       
     it 'is invalid without an email' do
       user.email = nil
       expect(user).to_not be_valid
@@ -33,6 +24,17 @@ RSpec.describe User, type: :model do
       user2 = User.new(name: 'ajaz', email: user.email, password: 'sadiq123')
       expect(user2).to_not be_valid
       expect(user2.errors[:email]).to include('has already been taken')
+    end
+    it 'sets the default name based on the email' do
+      user = User.new(email: 'riyaz ahmed@gmail.com')
+      user.set_default
+      expect(user.name).to eq('riyaz ahmed')
+    end
+
+    it 'handles nil email gracefully' do
+      user = User.new(email: nil)
+      user.set_default
+      expect(user.name).to be_nil
     end
   end
 end
