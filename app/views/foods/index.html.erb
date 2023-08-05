@@ -4,6 +4,7 @@
      <table class="table table-sm table-primary table-hover">
       <thead>
     <tr>
+      <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Measurement Unit</th>
       <th scope="col">Price</th>
@@ -14,7 +15,8 @@
       <tbody>
         <% current_user.foods.each do |food|%>
               <tr>
-                <td><%= food.name %></td>
+                <td><%= food.id %></td>
+                <td><%=food.name %></td>
                 <td><%= food.measurement_unit %></td>
                 <td><%= food.price %></td>
                 <td><%= food.quantity %></td>

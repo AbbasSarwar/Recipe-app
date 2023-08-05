@@ -5,7 +5,7 @@ RSpec.describe Food, type: :model do
 
   it 'is valid with valid attributes' do
     user = FactoryBot.create(:user) # Create a user if not already defined
-    food = FactoryBot.build(:food, user: user)
+    food = FactoryBot.build(:food, user:)
     expect(food).to be_valid
   end
 
