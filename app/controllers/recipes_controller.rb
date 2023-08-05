@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = current_user.recipes.find(params[:id])
     if @recipe.destroy
-      flash[:notice] = "Deleted succesfully #{@recipe.name}"
+      flash[:notice] = "#{@recipe.name} was deleted succesfully"
       redirect_to recipes_path
     else
       flash[:alert] = 'Error deleting record'

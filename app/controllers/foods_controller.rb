@@ -14,6 +14,7 @@ class FoodsController < ApplicationController
     respond_to do |format|
       format.html do
         if @food.save
+          flash[:notice] = "#{@food.name} was added successfully"
           redirect_to foods_path
         else
           redirect_to new_food_path
