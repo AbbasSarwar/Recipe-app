@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  subject do
+    User.new(name: 'abbas', role: 'admin', email: 'abbas@gmail.com', password: 'abbas.123')
+  end
+
   describe 'validations' do
-    let(:user) { FactoryBot.create(:user) }
-    before do
-      user.valid?
+    it "Email required can't be blank" do
+      subject.email = nil
+      expect(subject).to_not be_valid
     end
 
 
