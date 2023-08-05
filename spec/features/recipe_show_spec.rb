@@ -21,10 +21,10 @@ RSpec.describe 'Recipe show page', type: :feature do
   end
   let(:other_user) { create(:user) }
 
-  let(:ingredients) do
+  let!(:ingredients) do
     Ingredient.create(
       quantity: 1,
-      food: food.id,
+      food_id: food.id,
       recipe: recipe
     )
   end
