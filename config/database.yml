@@ -15,7 +15,6 @@ development:
   password: sadiq
   port: 5432
 
-
 test:
   <<: *default
   database: Recipe_app_test
@@ -30,4 +29,3 @@ production:
   username: orbit
   password: sadiq
   port: 5432
-

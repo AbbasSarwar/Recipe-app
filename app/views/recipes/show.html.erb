@@ -4,7 +4,7 @@
       <h2 class="recipe_detail_name"><%= @recipe.name %></h2>
       <% if current_user.id == @recipe.user_id %>
         <div class="button_public_class d-flex align-items-center">
-        <%= button_to recipe_path(@recipe.id), class: 'btn', method: :put do %>
+        <%= button_to recipe_path(@recipe.id), class: 'btn', method: :put, name: 'recipe[public]' do %>
           <% if @recipe.public %>
             <i class="fa-solid fa-toggle-on btn-on"></i>
           <% else %>
