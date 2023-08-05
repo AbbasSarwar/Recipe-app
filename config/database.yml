@@ -26,11 +26,8 @@ test:
 production:
   <<: *default
   database: Recipe_app_development
-<<<<<<< HEAD
   username: postgres
   password: admin
-=======
   username: orbit
   password: sadiq
   port: 5432
->>>>>>> eb628baffb3843be3ea29d2e9e34e105a09ddcf4
