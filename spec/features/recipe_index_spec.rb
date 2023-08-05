@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe 'Recipes index page', type: :feature do
   let(:user) { create(:user) }
-  let!(:recipes) { create_list(:recipe, 5, user: user) }
+  let!(:recipes) { create_list(:recipe, 5, user:) }
 
   before do
     login_as(user)

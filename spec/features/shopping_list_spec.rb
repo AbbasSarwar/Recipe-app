@@ -7,6 +7,4 @@ RSpec.describe 'Recipe show page', type: :feature do
     login_as(user)
     visit recipe_path(recipe)
   end
-  it "shopping list display" do
-  end
 end

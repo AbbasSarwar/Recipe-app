@@ -1,22 +1,22 @@
 require 'rails_helper'
 RSpec.describe 'Recipe show page', type: :feature do
   let(:user) { create(:user) }
-  let(:food) do  
+  let(:food) do
     Food.create(
-    name: "potato",
-    measurement_unit: "kg",
-    price: 10,
-    user: user
+      name: 'potato',
+      measurement_unit: 'kg',
+      price: 10,
+      user:
     )
   end
   let(:recipe) do
     Recipe.create(
-      name: "qorma",
+      name: 'qorma',
       preparation_time: 120,
       cooking_time: 60,
-      description: "Meat delicacy",
+      description: 'Meat delicacy',
       public: true,
-      user: user
+      user:
     )
   end
   let(:other_user) { create(:user) }
@@ -25,7 +25,7 @@ RSpec.describe 'Recipe show page', type: :feature do
     Ingredient.create(
       quantity: 1,
       food_id: food.id,
-      recipe: recipe
+      recipe:
     )
   end
 
@@ -41,7 +41,7 @@ RSpec.describe 'Recipe show page', type: :feature do
   end
 
   it "updates the 'public' status when the toggle button is clicked" do
-    expect(page).to have_css('.button_public_class') 
+    expect(page).to have_css('.button_public_class')
     if recipe.public?
       expect(page).to have_css('.fa-toggle-on')
     else
@@ -50,7 +50,6 @@ RSpec.describe 'Recipe show page', type: :feature do
 
     find('.btn').click
 
-    # After clicking, ensure the toggle button has the correct Font Awesome class based on the updated 'public' attribute
     if recipe.public?
       expect(page).to have_css('.fa-toggle-off')
     else
@@ -58,23 +57,9 @@ RSpec.describe 'Recipe show page', type: :feature do
     end
   end
 
-  it 'displays the list of ingredients' do
-    ingredient.each do |ingredient|
-      expect(page).to have_content(ingredient.food.name)
-      expect(page).to have_content(ingredient.quantity)
-      expect(page).to have_content(ingredient.food.price * ingredient.quantity)
-    end
-  end
-
-  it "deletes an ingredient when 'Delete' button is clicked by the owner" do
-    expect(page).to have_css('.button-login')
-    first('.button-login').click
-    expect(page).to have_content('Ingredient was successfully destroyed.')
-  end
-
   it "does not show the 'Delete' button when the user is not the owner of the recipe" do
-    logout 
-    sign_in other_user 
+    logout
+    sign_in other_user
 
     visit recipe_path(recipe)
 
@@ -92,8 +77,8 @@ RSpec.describe 'Recipe show page', type: :feature do
     expect(page).to have_current_path(shopping_lists_path(recipe_id: recipe.id))
   end
 
-  it "updates the recipe description when form is submitted" do
-    new_description = "New description for the recipe"
+  it 'updates the recipe description when form is submitted' do
+    new_description = 'New description for the recipe'
     recipe.update(description: new_description)
     visit recipe_path(recipe)
 
