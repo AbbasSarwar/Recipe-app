@@ -46,8 +46,10 @@
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
-
+- **[Recipe add]**
+- **[Ingredients add]**
+- **[Shopping list]**
+- **[Public enable]**
 - **[Kanban board]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
