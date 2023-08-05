@@ -1,0 +1,40 @@
+   <%= stylesheet_link_tag 'shopping_list' %>
+
+
+     
+    <%if @food_items.empty?%>
+        <p> No Shopping List </p>
+    <% else %>
+        <div class="container table-container py-2">
+
+              <div class="shopping-list-summary d-flex">   
+                <span class="text-danger"><%=@recipe.name %></span>
+   
+                 <span class="px-2">No of food items: <%= @total %> </span>
+                 <span>Total value: $<%= @total_price %> </span>
+              </div>
+            <table class="table table-sm table-warning table-hover table-style w-100">
+
+       <caption  style=" text-align:center; caption-side:top">Shopping List</caption>
+      <thead>
+
+           <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+            </tr>
+      </thead>
+      <tbody>
+                <% @food_items.each do |food|%>
+                    <tr>
+                        <td><%=food.food.name%></td>
+                        <td><%= food.food.quantity - food.quantity %> </td>
+                        <td>$ <%=food.food.price * (food.food.quantity - food.quantity) %></td>
+                    </tr>
+        </tbody>
+                <%end%>
+               
+            </table>
+             
+        </div>
+    <% end %>

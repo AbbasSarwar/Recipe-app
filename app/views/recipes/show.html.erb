@@ -1,0 +1,69 @@
+ 
+  <div class="container details-page d-flex flex-column">
+  <div class="d-flex align-items-center">
+      <h2 class="recipe_detail_name"><%= @recipe.name %></h2>
+      <% if current_user.id == @recipe.user_id %>
+        <div class="button_public_class d-flex align-items-center">
+        <%= button_to recipe_path(@recipe.id), class: 'btn', method: :put, name: 'recipe[public]' do %>
+          <% if @recipe.public %>
+            <i class="fa-solid fa-toggle-on btn-on"></i>
+          <% else %>
+            <i class="fa-solid fa-toggle-off btn-off"></i>
+          <% end %>
+        <% end %>
+        </div>
+       <p>Public</p>
+
+        <% end %>
+
+        </div>
+  <section class='public_recipe d-flex flex-column'>
+      <p><b>Preparation time: </b><%= @recipe.preparation_time %> hour</p>
+      <p><b>Cooking time: </b><%= @recipe.cooking_time %> hour</p>
+    <%= form_with model: @recipe do |f|%>
+            <div class="form-group d-flex flex-column">
+                <b> Steps: </b>
+                <%= f.text_area :description, value: @recipe.description, class: 'w-50', style: 'height: 100px; border: 0; scrollable: auto ; background-color: transparent' %>
+
+            </div>
+    <% end %>
+    
+  </section>
+
+  <table class="table table-warning table-hover table-style">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col" colspan="2" class="action">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ingredient.each do |ingredient| %>
+        <tr>
+          <td><%= ingredient.food.name %></td>
+          <td><%= ingredient.quantity %></td>
+          <td><%= ingredient.food.price * ingredient.quantity %></td>
+          <% if current_user.id == @recipe.user_id %>
+          <td><%= link_to "Modify", edit_recipe_path(@recipe, ingredient), method: :edit, class: 'button-login' %></td>
+            <td><%= button_to "Delete", recipe_ingredient_path(@recipe, ingredient), method: :delete, class: 'button-login' %></td>
+          <% else %>
+            <td>No actions</td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% if current_user.id == @recipe.user_id %>
+      <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <%= link_to 'Shopping List', shopping_lists_path(recipe_id: @recipe.id),  class: 'button-login mt-2 flex-shrink-1' %>
+         <%= link_to 'Add Ingredient', new_recipe_ingredient_path(@recipe), class: 'button-signup mb-4 flex-shrink-1' %>
+
+      </div>
+  <% end %>
+
+
+</div>
+

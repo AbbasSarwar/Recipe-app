@@ -1,0 +1,202 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'bootstrap';
+@import "**/*";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.box {
+  box-shadow: 0 2px 2px 2px #ccc;
+  width: 100%;
+  height: 90vh;
+}
+
+.add_recipe_btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #ffca4b;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #1c1c1c;
+}
+
+.forms {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  list-style: circle;
+}
+
+.users li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+footer {
+  display: flex;
+  height: 10%;
+}
+
+.splash-bottom {
+  margin-bottom: 3rem;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.title-text {
+  text-decoration: none;
+}
+
+nav {
+  height: auto;
+  background-color: #ffca4b;
+  opacity: 1;
+  width: 100%;
+
+  a {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #1c1c1c;
+  }
+}
+
+.menu {
+  width: 40%;
+  list-style: none;
+
+  li {
+    margin-right: 1rem;
+    font-weight: 700;
+  }
+
+  li:hover {
+    color: #6482ff;
+    box-shadow: 0 2px 4px 2px #ccc;
+    border-radius: 2px;
+  }
+}
+
+.button-login {
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 0.2rem 3rem;
+  text-decoration: none;
+  background-color: #6482ff;
+  margin-bottom: 2rem;
+}
+
+.button-signup {
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 0.2rem 2.5rem;
+  text-decoration: none;
+  background-color: #ffca4b;
+  box-shadow: 2px 2px 4px 4px #fff;
+}
+
+.details-page {
+  width: 100%;
+  height: auto;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.public_recipe {
+  display: flex;
+  justify-content: start;
+}
+
+.toggle {
+  display: flex;
+}
+
+.btn {
+  border: none;
+}
+
+.btn-on {
+  color: #008000;
+}
+
+.btn-off {
+  color: red;
+}
+
+.btn-on,
+.btn-off {
+  font-size: 30px;
+}
+
+.table-style {
+  opacity: 0.8;
+  width: 40%;
+}
+
+.recipe_detail_name {
+  position: relative;
+}
+
+.recipe_detail_name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 10%;
+  margin-top: 0.5rem;
+  transform: skew(8deg, -5deg);
+  background-color: #ffa27f;
+}
+
+.action {
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .button-login,
+  .button-signup {
+    width: 100%;
+    font-size: 65%;
+  }
+}
