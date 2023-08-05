@@ -1,8 +1,10 @@
 require 'rails_helper'
+
 RSpec.feature 'Foods', type: :feature do
+  let(:user) { FactoryBot.create(:user) }
+  let!(:food) { FactoryBot.create(:food, user:) } # Use let! to create the food instance before each scenario
+
   scenario 'Viewing foods index page' do
-    user = FactoryBot.create(:user)
-    food = FactoryBot.create(:food, user:)
     sign_in user
     visit foods_path
     expect(page).to have_content(food.name)
@@ -12,8 +14,6 @@ RSpec.feature 'Foods', type: :feature do
   end
 
   scenario 'Adding a new food item' do
-    user = FactoryBot.create(:user)
-    FactoryBot.create(:food, user:)
     sign_in user
     visit new_food_path
 
@@ -22,6 +22,7 @@ RSpec.feature 'Foods', type: :feature do
     fill_in 'Price', with: 10
     fill_in 'Quantity', with: 3
     click_button 'submit'
+
     expect(page).to have_content('Food was added successfully')
     expect(page).to have_content('New Food')
     expect(page).to have_content('grams')
@@ -30,13 +31,12 @@ RSpec.feature 'Foods', type: :feature do
   end
 
   scenario 'Deleting a food item' do
-    user = FactoryBot.create(:user)
-    food = FactoryBot.create(:food, user:)
     sign_in user
     visit foods_path
 
     expect(page).to have_content(food.name)
     click_button 'Delete'
+
     expect(page).to have_content("Deleted successfully #{food.name}")
     expect(page).not_to have_content(food.measurement_unit)
     expect(page).not_to have_content(food.price)

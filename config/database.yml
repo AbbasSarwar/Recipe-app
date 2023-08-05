@@ -3,28 +3,29 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: postgres
-  password: admin
+  username: orbit
+  password: sadiq
   port: 5432
 
 development:
   <<: *default
   database: Recipe_app_development
   host: localhost
-  username: postgres
-  password: admin
+  username: orbit
+  password: sadiq
   port: 5432
 
 test:
   <<: *default
   database: Recipe_app_test
   host: localhost
-  username: postgres
-  password: admin
+  username: orbit
+  password: sadiq
   port: 5432
 
 production:
   <<: *default
   database: Recipe_app_development
-  username: postgres
-  password: admin
+  username: orbit
+  password: sadiq
+  port: 5432
