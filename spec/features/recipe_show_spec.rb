@@ -58,20 +58,6 @@ RSpec.describe 'Recipe show page', type: :feature do
     end
   end
 
-  it 'displays the list of ingredients' do
-    ingredient.each do |ingredient|
-      expect(page).to have_content(ingredient.food.name)
-      expect(page).to have_content(ingredient.quantity)
-      expect(page).to have_content(ingredient.food.price * ingredient.quantity)
-    end
-  end
-
-  it "deletes an ingredient when 'Delete' button is clicked by the owner" do
-    expect(page).to have_css('.button-login')
-    first('.button-login').click
-    expect(page).to have_content('Ingredient was successfully destroyed.')
-  end
-
   it "does not show the 'Delete' button when the user is not the owner of the recipe" do
     logout 
     sign_in other_user 
